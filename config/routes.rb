@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   get 'listing/page'
   resources :places
   devise_for :users

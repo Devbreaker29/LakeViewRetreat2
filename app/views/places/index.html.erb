@@ -24,7 +24,7 @@
         <td><%= place.availability %></td>
         <td><%= place.category %></td>
         <td><%= place.user_id %></td>
-        <td><%= link_to 'Show', place %></td>
+        <td><%= link_to 'Show', place %></td> 
         <td><%= link_to 'Edit', edit_place_path(place) %></td>
         <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -33,5 +33,5 @@
 </table>
 
 <br>
-
-<%= link_to 'New Place', new_place_path %>
+<%= link_to 'New Place', new_place_path =%>
+<%= link_to "Home", href= "http://127.0.0.1:3000/"%>
