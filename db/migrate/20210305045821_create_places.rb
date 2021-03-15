@@ -3,7 +3,8 @@ class CreatePlaces < ActiveRecord::Migration[6.1]
     create_table :places do |t|
       t.string :name
       t.text :description
-      t.float :price
+      t.integer :price
+      t.boolean :sold
       t.boolean :availability
       t.string :category
       t.references :user, null: false, foreign_key: true

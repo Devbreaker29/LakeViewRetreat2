@@ -16,6 +16,11 @@
 </p>
 
 <p>
+ <strong>Sold:</strong>
+ <%= @place.sold %>
+</p>
+
+<p>
   <strong>Availability:</strong>
   <%= @place.availability %>
 </p>
@@ -33,6 +38,25 @@
 <p>
 <%= image_tag @place.picture%>
 </p>
+
+<button data-stripe="payment">
+Buy Now!
+</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document
+    .querySelector("[data-stripe='payment']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      )
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      })
+    })
+</script>
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
