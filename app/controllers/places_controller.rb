@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /places or /places.json
   def index
     @places = Place.all
@@ -8,6 +8,31 @@ class PlacesController < ApplicationController
 
   # GET /places/1 or /places/1.json
   def show
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      customer_email: current_user.email,
+      line_items:  [{
+        name: @place.name,
+        description: @place.description,
+        amount: @place.price,
+        currency: 'aud',
+        quantity: 1
+      }],
+      payment_intent_data: {
+        metadata: {
+          user_id: current_user.id,
+          place_id: @place.id
+        }
+      },
+      success_url: "#{root_url}payments/success?placeId=#{@place.id}",
+      # todo - check if we can use places_path
+      cancel_url: "#{root_url}places"
+    )
+
+    @sessions_id = session.id
+
+    puts "session:"
+    p session
   end
 
   # GET /places/new
@@ -64,6 +89,6 @@ class PlacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def place_params
-      params.require(:place).permit(:name, :description, :price, :availability, :category, :user_id, :picture)
+      params.require(:place).permit(:name, :description, :price, :sold, :availability, :category, :user_id, :picture)
     end
 end
