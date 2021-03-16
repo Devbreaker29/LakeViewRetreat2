@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'photo/page'
   devise_for :admins
   get 'listing/page'
   resources :places
