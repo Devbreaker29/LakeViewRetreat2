@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'location/page'
+  get 'amenities/page'
+  get 'retreatdetails/page'
   get 'photo/page'
   devise_for :admins
   get 'listing/page'

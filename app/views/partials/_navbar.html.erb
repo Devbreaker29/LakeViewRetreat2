@@ -8,17 +8,17 @@
     <ul class="navbar-nav ml-auto">
        <ul class="navbar-nav ml-auto">
         <li class="nav-item"> 
-             <a class="nav-link" href="#">Location <span class="sr-only">(current)</span></a>
+             <%= link_to "Location", location_page_path, class: "nav-link" %> 
         </li>
         <%# <ul> %>
        <%# <ul class="navbar-nav ml-auto"> %>
         <li class="nav-item"> 
-             <a class="nav-link" href="#">Amenities <span class="sr-only">(current)</span></a>
+              <%= link_to "Amenities", amenities_page_path, class: "nav-link" %> 
         </li>
         <%# <ul> %>
        <%# <ul class="navbar-nav ml-auto"> %>
         <li class="nav-item"> 
-             <a class="nav-link" href="#">Retreat Details <span class="sr-only">(current)</span></a>
+             <%= link_to "Retreat Details", retreatdetails_page_path, class: "nav-link" %>  
         </li>
         <%# <ul> %>
       <%# <ul class="navbar-nav ml-auto"> %>
