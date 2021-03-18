@@ -29,7 +29,7 @@ class PlacesController < ApplicationController
       cancel_url: "#{root_url}places"
     )
 
-    @sessions_id = session.id
+    @session_id = session.id
 
     puts "session:"
     p session

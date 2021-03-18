@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'my_form/index'
+  resources :my_form, only: [:index, :new, :create]
   get 'location/page'
   get 'amenities/page'
   get 'retreatdetails/page'
+  get "/payments/success", to: "payments#success"
   get 'photo/page'
   devise_for :admins
   get 'listing/page'

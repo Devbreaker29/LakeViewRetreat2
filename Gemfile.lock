@@ -99,6 +99,10 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.15.0)
@@ -123,6 +127,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mail_form (1.9.0)
+      actionmailer (>= 5.2)
+      activemodel (>= 5.2)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
@@ -267,9 +274,11 @@ DEPENDENCIES
   capybara (>= 3.26)
   cloudinary
   devise
+  dotenv-rails
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
+  mail_form
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
