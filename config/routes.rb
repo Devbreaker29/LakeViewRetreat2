@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'my_form/index'
-  resources :my_form, only: [:index, :new, :create]
   get 'location/page'
+  post "/email", to: "email#contact_us"
+  get "/email", to: "email#contact_us"
   get 'amenities/page'
   get 'retreatdetails/page'
   get "/payments/success", to: "payments#success"
